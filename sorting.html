@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset = "UTF-8">
-        <title>Сортировка выбором</title>
 
-        <script>
-            document.writeln("Реализован алогоритм сортировки выбором.");
+<head>
+    <meta charset="UTF-8">
+    <title>Сортировка выбором</title>
 
-            var array = [3, 7, 1, 5, 4, 9];
-            document.write(array);
-        </script>
-    </head>
+    <script>
+        document.writeln("Реализован алогоритм сортировки выбором.");
+
+        var array = [3, 7, 1, 5, 4, 9];
+        document.writeln("<br> " + array);
+        var size = array.length;
+        var current = 0;
+        var position = current;
+        for (var i = 0; i < size; i++) {
+            if (array[i] > array[position]) {
+                position = i;
+            }
+        }
+        var temp = array[position];
+        array[position] = array[current];
+        array[current] = temp;
+
+        document.writeln("<br>" + array);
+    </script>
+</head>
+
 </html>
