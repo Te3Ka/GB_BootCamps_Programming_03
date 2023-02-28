@@ -6,6 +6,7 @@
     <title>Сортировка выбором</title>
 
     <script>
+        //Генерация случайного целого числа
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
@@ -13,12 +14,13 @@
         document.writeln("Реализован алогоритм сортировки выбором.");
 
         var array = new Array();
-        var size = getRandomInt(1, 20);
+        var size = getRandomInt(1, 50);
 
         for (var i = 0; i < size; i++) {
-            array[i] = getRandomInt(0, 50);
+            array[i] = getRandomInt(0, 100);
         }
-        document.writeln("<br> " + array);
+
+        document.writeln(`<br>${array}\t <<< Исходный массив`);
 
         for (var current = 0; current < size - 1; current++) {
             var position = current;
@@ -30,7 +32,7 @@
             var temp = array[position];
             array[position] = array[current];
             array[current] = temp;
-            document.writeln("<br>" + array);
+            document.writeln(`<br>${array}\t <<< ${current + 1} итерация`);
         }
     </script>
 </head>
