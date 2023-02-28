@@ -11,18 +11,18 @@
         var array = [3, 7, 1, 5, 4, 9];
         document.writeln("<br> " + array);
         var size = array.length;
-        var current = 0;
-        var position = current;
-        for (var i = 0; i < size; i++) {
-            if (array[i] > array[position]) {
-                position = i;
+        for (var current = 0; current < size - 1; current++) {
+            var position = current;
+            for (var i = current + 1; i < size; i++) {
+                if (array[i] > array[position]) {
+                    position = i;
+                }
             }
+            var temp = array[position];
+            array[position] = array[current];
+            array[current] = temp;
+            document.writeln("<br>" + array);
         }
-        var temp = array[position];
-        array[position] = array[current];
-        array[current] = temp;
-
-        document.writeln("<br>" + array);
     </script>
 </head>
 
