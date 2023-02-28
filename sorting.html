@@ -11,29 +11,42 @@
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
+        //Генерация массива случайных чисел
+        function getRandomArray(size) {
+            var tempArray = [];
+            for (var i = 0; i < size; i++) {
+                tempArray[i] = getRandomInt(0, 100);
+            }
+            return tempArray;
+        }
+
+        //Сортировка массива методом выбора
+        function sortArrayBySelection(sortArray) {
+            for (var current = 0; current < size - 1; current++) {
+                var position = current;
+                for (var i = current + 1; i < size; i++) {
+                    if (sortArray[i] > sortArray[position]) {
+                        position = i;
+                    }
+                }
+                var temp = sortArray[position];
+                sortArray[position] = sortArray[current];
+                sortArray[current] = temp;
+                document.writeln(`<br>${sortArray}\t <<< ${current + 1} итерация`);
+            }
+            return sortArray;
+        }
+
         document.writeln("Реализован алогоритм сортировки выбором.");
 
-        var array = new Array();
         var size = getRandomInt(1, 50);
-
-        for (var i = 0; i < size; i++) {
-            array[i] = getRandomInt(0, 100);
-        }
+        var array = getRandomArray(size);
 
         document.writeln(`<br>${array}\t <<< Исходный массив`);
+        var sortSelectionArray = sortArrayBySelection(array);
+        document.writeln(`<br>${array}\t <<< Отсортированный массив`);
 
-        for (var current = 0; current < size - 1; current++) {
-            var position = current;
-            for (var i = current + 1; i < size; i++) {
-                if (array[i] > array[position]) {
-                    position = i;
-                }
-            }
-            var temp = array[position];
-            array[position] = array[current];
-            array[current] = temp;
-            document.writeln(`<br>${array}\t <<< ${current + 1} итерация`);
-        }
+
     </script>
 </head>
 
